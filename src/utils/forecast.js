@@ -11,7 +11,8 @@ const forecast = (latitude , longitude , callback) => {
             const temperature = body.current.temperature;
             const feelslike = body.current.feelslike;
             const weather_descriptions = body.current.weather_descriptions[0];
-            callback(undefined,weather_descriptions + ", It is currently " + temperature + " degress out . It feels like " + feelslike + " degress out .");
+            const localtime = body.location.localtime;
+            callback(undefined,'localtime: ' + localtime +","+ weather_descriptions + ", It is currently " + temperature + " degress out . It feels like " + feelslike + " degress out .");
         }  
     });
 };
